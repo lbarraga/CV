@@ -121,5 +121,5 @@
 
 #section("Extracurricular Activities")
 - *Self-Hosting:* Administer a personal home server managing containerized applications via Docker.
-- *Swimming Instructor & Lifeguard:* 6 years of experience teaching water safety and technique.
+- *Lifeguard & Swimming Instructor:* Got my lifeguard certification in 2021 and have 8 years experience as a swimming instructor.
 - *Hobbies*: I like swimming, running, playing chess and learning about computers.
