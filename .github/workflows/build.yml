@@ -1,0 +1,41 @@
+name: Compile Thesis
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: 
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Setup Magic Nix Cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Build Typst Document
+        run: |
+          nix build
+          cp -L result CV.pdf
+
+      - name: Publish PDF to GitHub Releases
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "CV.pdf"
+          tag: "latest"
+          name: "Latest CV Build"
+          body: "This is the most recent compilation of the CV, automatically generated from the `main` branch."
+          allowUpdates: true
+          makeLatest: true
+          removeArtifacts: true
+          replacesArtifacts: true
