@@ -29,8 +29,7 @@
           '';
 
           installPhase = ''
-            mkdir -p $out
-            cp cv.pdf $out/
+            cp cv.pdf $out
           '';
         };
       }
